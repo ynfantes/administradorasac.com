@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /cancelacion.gastos/
+Disallow: /css/
+Disallow: /enlinea/avisos/
+Disallow: /enlinea/cuenta/
+Disallow: /enlinea/inmueble/
+Disallow: /enlinea/pago/
+Disallow: /enlinea/prerecibo/
+Disallow: /enlinea/propietario/
+Disallow: /img/
+Disallow: /includes/
+Disallow: /js/
+Disallow: /template/

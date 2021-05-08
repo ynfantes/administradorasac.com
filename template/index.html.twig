@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adminsitradora SAC - Servicio de Administracion de Condominios">
+    <meta name="author" content="Pronet21">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <title>Administradora de Condominio, Administradora SAC, Servicio Administracion de Condominio</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="css/lib/font-awesome.css" rel="stylesheet">
+    <!-- Zocial CSS -->
+    <link href="css/lib/zocial.css" rel="stylesheet">
+    <!-- VENOBOx CSS -->
+    <link rel="stylesheet" href="css/lib/venobox.css" type="text/css" />
+    <!-- EXPANDING THUMBNAIL CSS -->
+    <link rel="stylesheet" href="css/lib/og-component.css" type="text/css" />
+    <!-- ANIMATED CSS -->
+    <link href="css/lib/animate.css" rel="stylesheet">
+    <!-- STYLE CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- COLOR SCHEME CSS -->
+    <link id="clscheme" href="css/scheme/light-blue.css" rel="stylesheet">
+    <!-- MODERNIZER JS -->
+    <script src="js/lib/modernizr.custom.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+    <!-- BEGIN Costumize -->
+    <link href="demo-asset/css/style.css" rel="stylesheet" type="text/css">
+    <div class="cos-wrapper">
+        <div class="cos-trigger">
+            <i class="fa fa-sign-in" style="font-size: 24px;"></i>
+        </div>
+        <div class="cos-body">
+            <div class="well no-padding" style="border:10px solid #e3e3e3">
+                <form class="smart-form client-form" id="login-form" action="login.php" novalidate="novalidate" method="post">
+    <header style="color: #a90329; font-weight: 400">
+Acceso Área de Propietarios
+</header>
+<fieldset>
+<section>
+<label class="label">Número Cédula de Identidad</label>
+<label class="input"> <i class="icon-append fa fa-user"></i>
+<input type="cedula" name="cedula">
+</label>
+</section>
+<section>
+<label class="label">Clave de Acceso</label>
+<label class="input"> <i class="icon-append fa fa-lock"></i>
+<input type="password" name="password">
+</label>
+<div class="note">
+<a href="#">Olvidó su clave?</a>
+</div>
+</section>
+<section>
+<a href="#">Ver DEMO</a>
+</section>
+</fieldset>
+<footer>
+<button class="btn btn-primary" type="submit" name="submit">
+Entrar
+</button>
+</footer>
+</form>
+</div>
+</div>
+    </div>
+    <!-- END Costumize -->
+    <!-- BEGIN OUTTER -->
+    <div class="outter">
+        <!---->
+        <!-- BEGIN NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Barra de Navegación</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="sscroll" href="#top">Inicio</a>
+                        </li>
+                        <li><a class="sscroll" href="#about">Nuestra Empresa</a>
+                        </li>
+                        <li><a class="sscroll" href="#services">Servicios</a>
+                        </li>
+                        <li><a class="sscroll" href="#contact">Contacto</a>
+                        </li>
+                        <li><a class="sac-en-linea">{{ constant('NOMBRE_APLICACION')}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- END NAVBAR -->
+
+        <!-- BEGIN SLIDER ONE -->
+        <div class="home-wrapper" id="top">
+            <div class="content-home-wrapper text-center">
+                <div class="header-center fade-in">
+                    <h1><img src="images/logo.png"></h1>
+                    <p>Servicio de Administración de Condominios para Edificios, Conjuntos Residenciales, Centros Comerciales y Comunidades. </p>
+                    <p><a class="sscroll slider-more" href="#about"><i class="fa fa-angle-down"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="fullfilter"></div>
+            <div class="home-image" data-src="images/diadelatierra.jpg"></div>
+        </div>
+        <!-- END SLIDER ONE -->
+
+        <!-- BEGIN CONTENT SECTION -->
+        <div class="section-outter">
+            <!-- BEGIN ABOUT  -->
+            <section id="about">
+                <div class="section-wrapper">
+                    <div class="section-title">
+                        <h2 class="title animatez" data-effect="fadeInDown">¿Quiénes Somos?</h2>
+                        <h4 class="subtitle animatez" data-effect="fadeInUp">Somos una administradora de condominio 
+                            <span class="main-color">que le brinda un amplio portafolio de servicios</span>&nbsp;</h4>
+                    </div>
+                    <hr class="title-break">
+                    <div class="section-inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 mg-sm animatez" data-effect="fadeInUp">
+                                    <i class="fa fa-gears fa-5x main-color"></i>
+                                    <h3>
+                                        <strong>Nuestra Misión</strong>
+                                    </h3>
+                                    <p>Es ofrecer servicios de administración de condominios a edificios, conjuntos residenciales, centros comerciales y comunidades en forma honesta, rápida y efectiva, basados en el crecimiento sostenido de nuestra estructura profesional, en una plataforma tecnológica de avanzada y en una atención amable que satisfaga las necesidades del cliente.</p>
+                                </div>
+                                <div class="col-sm-6 mg-sm animatez delay one" data-effect="fadeInUp">
+                                    <i class="fa fa-certificate fa-5x main-color"></i>
+                                    <h3>
+                                        <strong>Nuestra Visión</strong>
+                                    </h3>
+                                    <p>Consolidarnos y fortalecer nuestra posición dentro del segmento de las administradoras de condominio, mediante la ampliacion y penetración de nuevos mercados de Administración de Condominios, diversificando nuestra oferta de servicios apoyandonos en nuesto talento humano y la inversión en infraestructura y tecnología.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer big"></div>
+                    <div class="section-fill bg-parallax bg-about" style="background:url('images/bg-about.jpg');">
+                        <div class="fill-wrapper">
+                            <div class="section-title">
+                                <h2 class="title white animatez" data-effect="fadeInDown">Administradora de Condominio SAC</h2>
+                                <h4 class="subtitle animatez" data-effect="fadeInUp">
+                                    <span class="main-color">¿Es usted cliente? Le ofrecemos nuestro servicio de consultas en línea</span>
+                                </h4>
+                                <div class="spacer medium"></div>
+                                <a href="javascript:;" class="btn-outline white animatez" data-effect="fadeIn">Entrar a Sac en Línea&nbsp;&nbsp;&rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END ABOUT -->
+
+            <!-- BEGIN SERVICES -->
+            <section id="services">
+                <div class="section-wrapper">
+                    <div class="section-title">
+                        <h2 class="title animatez" data-effect="fadeInDown">Nuestros Servicios</h2>
+                        <h4 class="subtitle animatez" data-effect="fadeInUp">Si desea 
+                            <span class="main-color">el servicio que usted se merece</span>&nbsp;somos su selección natural</h4>
+                    </div>
+                    <hr class="title-break">
+                    <div class="section-inner">
+                        <div class="container">
+                            <div class="row">
+                                <!-- LEFT ICON -->
+                                <div class="col-md-4 mg-sm animatez" data-effect="fadeInUp">
+                                    <div class="left-icon">
+                                        <div class="icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="left-content">
+                                            <h4>
+                                                <strong>Administramos su propiedad</strong>
+                                            </h4>
+                                            <p>Cuidamos su inversión, garantizamos el mantenimiento preventivo y correctivo de su inmueble, las áreas comunes y de los servicios públicos de la comunidad. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- LEFT ICON -->
+                                <div class="col-md-4 mg-sm animatez delay one" data-effect="fadeInUp">
+                                    <div class="left-icon">
+                                        <div class="icon">
+                                            <i class="fa fa-comments-o"></i>
+                                        </div>
+                                        <div class="left-content">
+                                            <h4>
+                                                <strong>Nómina del condominio</strong>
+                                            </h4>
+                                            <p>Procesamos y cancelamos la nómina de su condominio de manera eficiente y segura. Llevamos el control de los pasivos laborales, vacaciones, aguinaldos. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- LEFT ICON -->
+                                <div class="col-md-4 mg-sm animatez delay two" data-effect="fadeInUp">
+                                    <div class="left-icon">
+                                        <div class="icon">
+                                            <i class="fa fa-folder-open-o"></i>
+                                        </div>
+                                        <div class="left-content">
+                                            <h4>
+                                                <strong>Pagos Puntuales</strong>
+                                            </h4>
+                                            <p>No se preocupe por los pagos de los servicios, proveedores y otras obligaciones administrativas(Seguro Social, Ahorro Habitacional y más). Disfrute de más tiempo libre.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- LEFT ICON -->
+                                <div class="col-md-4 mg-sm animatez" data-effect="fadeInUp">
+                                    <div class="left-icon">
+                                        <div class="icon">
+                                            <i class="fa fa-hdd-o"></i>
+                                        </div>
+                                        <div class="left-content">
+                                            <h4>
+                                                <strong>Atención al propietario</strong>
+                                            </h4>
+                                            <p>Usted será atendido con amabilidad, con el único objetivo de brindarle información y repuesta oportuna a sus necesidades. Ponemos a su disposición múltiples canales de comunicación.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- LEFT ICON -->
+                                <div class="col-md-4 mg-sm animatez delay one" data-effect="fadeInUp">
+                                    <div class="left-icon">
+                                        <div class="icon">
+                                            <i class="fa fa-male"></i>
+                                        </div>
+                                        <div class="left-content">
+                                            <h4>
+                                                <strong>Sistema Web</strong>
+                                            </h4>
+                                            <p>Reporte su pago de condominio, consulte su estado de cuenta, descargue su aviso de cobro o cancelación de gastos y más!. Sin necesidad de venir a nuestar oficinas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- LEFT ICON -->
+                                <div class="col-md-4 mg-sm animatez delay two" data-effect="fadeInUp">
+                                    <div class="left-icon">
+                                        <div class="icon">
+                                            <i class="fa fa-anchor"></i>
+                                        </div>
+                                        <div class="left-content">
+                                            <h4>
+                                                <strong>Gestión de Cobranza</strong>
+                                            </h4>
+                                            <p>Llamadas telefónicas, envío de cartas y telegramas de cobranza, y en última instancia nuestro departamento legal son garantía de minimizar la morosidad de su condominio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer big"></div>
+                    <!-- BEGIN SKILL -->
+                    <div class="section-fill bg-parallax bg-skill" style="background-image: url(images/bg-service.jpg);">
+                        <div class="fill-wrapper">
+                            <div class="section-title">
+                                <h2 class="white animatez" data-effect="fadeInDown">
+                                    <strong>Nuestras Habilidades</strong>
+                                </h2>
+                                <hr class="title-break">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="skill-bar">
+                                            <ul>
+                                                <li>
+                                                    <div class="bar" data-value="90">
+                                                        <h5>Servicio</h5>
+                                                    </div>
+                                                    <span>09 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" data-value="100">
+                                                        <h5>Honestidad</h5>
+                                                    </div>
+                                                    <span>10 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" data-value="89">
+                                                        <h5>Eficiencia</h5>
+                                                    </div>
+                                                    <span>8.9 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" data-value="81">
+                                                        <h5>Atención Personalizada</h5>
+                                                    </div>
+                                                    <span>8.1 / 10</span>
+                                                </li>
+                                                <!-- STATIC ( NOT ANIMATED) SKILL BAR 
+                                                <li>
+                                                    <div class="bar" style="width:100%;">
+                                                        <h5>Branding</h5>
+                                                    </div>
+                                                    <span>10 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" style="width:85%;">
+                                                        <h5>Elegant</h5>
+                                                    </div>
+                                                    <span>8.5 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" style="width:92%;">
+                                                        <h5>Quality</h5>
+                                                    </div>
+                                                    <span>9.2 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" style="width:81%;">
+                                                        <h5>Creative</h5>
+                                                    </div>
+                                                    <span>8.1 / 10</span>
+                                                </li>
+                                                -->
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="skill-bar">
+                                            <ul>
+                                                <li>
+                                                    <div class="bar" data-value="100">
+                                                        <h5>Transparencia</h5>
+                                                    </div>
+                                                    <span>10 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" data-value="95">
+                                                        <h5>Asesoría</h5>
+                                                    </div>
+                                                    <span>9.5 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" data-value="70">
+                                                        <h5>Oficina sin papel</h5>
+                                                    </div>
+                                                    <span>7 / 10</span>
+                                                </li>
+                                                <li>
+                                                    <div class="bar" data-value="82">
+                                                        <h5>Servicios electrónicos</h5>
+                                                    </div>
+                                                    <span>8.2 / 10</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SKILL -->
+                </div>
+            </section>
+            <!-- END SERVICES -->
+
+            <!-- BEGIN TEAM -->
+            <section id="team">
+                <div class="section-wrapper">
+                    <!-- BEGIN VIDEO -->
+                    <div class="section-fill">
+
+                        <div class="video-wrapper">
+                            <div class="bg-video" style="background:url('images/bg-video.jpg');"></div>
+                            <div class="video-overlay"></div>
+                            <div class="fill-wrapper">
+                                <div class="section-title">
+                                    <h1 class="white animatez" data-effect="fadeInDown">
+                                        <strong>Ahora reportar</strong>&nbsp;su pago de condominio
+                                    </h1>
+                                    <h3 class="subtitle white animatez" data-effect="fadeInUp">
+                                        es más facil, desde su <strong>tablet, smartphone o computador</strong>
+                                    </h3>
+                                    <div class="spacer small"></div>
+                                </div>
+                                <div class="imac-wrapper animatez" data-effect="slideInDown">
+                                    <a href="http://youtu.be/6cymBo-cu3g" data-type="youtube" class="popup">
+                                        <img src="images/imac.png" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END VIDEO -->
+                </div>
+            </section>
+            <!-- END TEAM -->
+            <!-- BEGIN CONTACT -->
+            <section id="contact">
+                <div class="section-wrapper">
+                    <div class="section-title">
+                        <h2 class="title animatez" data-effect="fadeInDown">Dónde Ubicarnos</h2>
+                        <h4 class="subtitle animatez" data-effect="fadeInUp">No dude en ponerse en contacto con nosotros.
+                            <br/>Nos gustaría escuchar su requerimiento.</h4>
+                    </div>
+                    <hr class="title-break">
+                    <div class="section-inner">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-md-6 mg-sm animatez" data-effect="fadeIn">
+                                    <form role="form" class="text-left">
+                                        <div class="form-group">
+                                            <label for="inputEmail1">Dirección de Correo Electrónico*</label>
+                                            <input type="email" class="form-control" id="inputEmail1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputText1">Nombre(s) y Apellido(s)*</label>
+                                            <input type="text" class="form-control" id="inputText1" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="textArea1">Mensaje/Consulta/Comentario*</label>
+                                            <textarea id="textArea1" class="form-control" rows="6"></textarea>
+                                        </div>
+                                        <div class="spacer small"></div>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-default">Enviar</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 mg-sm text-left animatez" data-effect="fadeIn">
+                                    <h4>Escríbanos</h4>
+                                    <p>
+                                        Complete este formulario y uno de nuestros especialistas lo estará contactando a la brevedad.
+                                    </p>
+                                    <div class="spacer small"></div>
+                                    <h4>
+                                        <strong>Administradora de Condominio SAC</strong>
+                                    </h4>
+                                    <p>
+                                        Av. Caurimare, Centro Comercial Caroní
+                                        <br>Piso 1, Oficina 14-A.
+                                        <br>Colinas de Bello Monte. Caracas
+                                    </p>
+                                    <p>
+                                        (0212)751 9992
+                                        <br>
+                                        (0212)751 3764
+                                        <br>
+                                        (0212)751 6761
+                                        <br>
+                                        <a href="mailto:#">condominio@administradorasac.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer big"></div>
+                </div>
+            </section>
+            <!-- END CONTACT -->
+            <footer class="footer white section-wrapper">
+                <nav class="footer-nav" role="navigation">
+                    <ul><li><a class="sscroll" href="#top">Inicio</a>
+                        </li>
+                        <li><a class="sscroll" href="#about">Nuestra Empresa</a>
+                        </li>
+                        <li><a class="sscroll" href="#services">Servicios</a>
+                        </li>
+                        <li><a class="sac-en-linea">Sac en Línea</a>
+                        </li>
+                        <li><a class="sscroll" href="#contact">Contact</a>
+                        </li>
+                        <li><a href="javascript:;">Twitter</a>
+                        </li>
+                        <li><a href="javascript:;">Facebook</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright">&copy; 2014 Administradora SAC. Todos los derechos reservados.</p>
+                <div class="footer-logo">
+                    <img src="{{ constant('ROOT') }}images/logo-white.png" alt="">
+                    <span><a href="www.pronet21.com.ve" style="color:#fff;">Una solución de Pronet21</a></span>
+                </div>
+                <div class="spacer big"></div>
+            </footer>
+
+        </div>
+        <!-- END CONTENT SECTION -->
+
+        <!---->
+    </div>
+    <!-- END OUTTER -->
+
+    <!-- BACK TO TOP -->
+    <div class="totop" id="backtotop">
+        <span>
+            <a href="#home" class="first sscroll"><i class="fa fa-angle-up"></i></a>
+            <a href="#home" class="hover sscroll"><i class="fa fa-angle-up"></i></a>
+        </span>
+    </div>
+    <!-- END BACK TO TOP -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ constant('ROOT') }}js/jquery-1.10.2.min.js"></script>
+    <!-- EXPANDING THUMBNAIL JS -->
+    <script src="{{ constant('ROOT') }}js/lib/grid.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="{{ constant('ROOT') }}js/bootstrap.min.js"></script>
+    <!-- SUPER SLIDES JS -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.superslides.min.js"></script>
+    <!-- JQUERY BACK TO TOP -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.backtotop.js"></script>
+    <!-- JQUERY PARALLAX -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.parallax.js"></script>
+    <!-- JQUERY BACKGROUND VIDEO -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.backgroundvideo.js"></script>
+    <!-- JQUERY VENOBOX VIDEO -->
+    <script src="{{ constant('ROOT') }}js/lib/venobox.min.js"></script>
+    <!-- JQUERY WAYPOINT -->
+    <script src="{{ constant('ROOT') }}js/lib/waypoints.js"></script>
+    <!-- JQUERY WAYPOINT -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.countTo.js"></script>
+    <!-- JQUERY SMOOTH SCROLL -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.smooth-scroll.min.js"></script>
+    <!-- JQUERY FITVID -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.fitvid.js"></script>
+    <!-- JQUERY BACKSTRETCH -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.backstretch.min.js"></script>
+    <!-- JQUERY MASONRY LAYOUT 
+    <script src="js/lib/masonry.pkgd.min.js"></script>-->
+    <!-- JQUERT SUDO SLIDER JS -->
+    <script src="{{ constant('ROOT') }}js/lib/jquery.sudoslider.min.js"></script>
+    <!-- JQUERY VALIDATE -->
+    <script src="{{ constant('ROOT') }}js/jquery-validate/jquery.validate.min.js"></script>
+    <!-- MAIN JS -->
+    <script src="{{ constant('ROOT') }}js/main.js"></script>
+    <script src="{{ constant('ROOT') }}demo-asset/js/main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+            //runAllForms();
+
+            $(function() {
+                    // Validation
+                    $("#login-form").validate({
+                            // Rules for form validation
+                            rules : {
+                                    cedula : {
+                                            required : true
+                                    },
+                                    password : {
+                                            required : true,
+                                            minlength : 4,
+                                            maxlength : 20
+                                    }
+                            },
+
+                            // Messages for form validation
+                            messages : {
+                                    cedula : {
+                                            required : 'Ingrese su número de cédula'
+                                    },
+                                    password : {
+                                            required : 'Ingrese su clave de acceso',
+                                            minlength: 'Deben ser mínimo 4 caracteres',
+                                            maxlength:  'No pueden ser más de 20 caracteres'
+                                    }
+                            },
+
+                            // Do not change code below
+                            errorPlacement : function(error, element) {
+                                    error.insertAfter(element.parent());
+                            }
+                    });
+            });
+    </script>
+</body>
+
+</html>

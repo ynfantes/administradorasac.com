@@ -1,0 +1,427 @@
+.cos-wrapper {
+        position: fixed;
+        z-index: 9999999;
+        top: 110px;
+        left: -280px;
+    }
+    .cos-trigger {
+        position: relative;
+        background: #1e6da5;
+        float: right;
+        padding: 10px 15px;
+        color: #FFF;
+        font-size: 14px;
+        cursor: pointer;
+        height: 40px;
+        width: 30px;
+        border-radius: 0 3px 3px 0;
+    }
+    .cos-trigger i {
+        position: absolute;
+        left: 2px;
+        bottom: 8px;
+        -moz-transition: all 1s ease-in-out;
+        -webkit-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+    }
+    .cos-body {
+        position: relative;
+        background: #1e6da5;
+        float: left;
+        padding: 15px 15px;
+        width: 280px;
+    }
+    .cos-body span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #E5E5E5;
+        margin-bottom: 10px;
+        display: block;
+        letter-spacing: 1px;
+    }
+    .ch-color {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .ch-color li {
+        display: block;
+        float: left;
+    }
+    .ch-color li.aktif a {
+        box-shadow: 0 0 0 3px #222;
+    }
+    .ch-color li a {
+        width: 20px;
+        height: 20px;
+        margin: 2px 5px;
+        content:' ';
+        position: relative;
+        display: inline-block;
+    }
+    a[data-css='light-blue'] {
+        background: #4cddf3;
+    }
+    a[data-css='light-green'] {
+        background: #2cde97;
+    }
+    a[data-css='light-red'] {
+        background: #ea4848;
+    }
+    a[data-css='yellow'] {
+        background: #e9bd00;
+    }
+    .sac-en-linea {
+        cursor: pointer;
+    }
+@font-face {
+  font-family: 'costumize';
+  src: url('../../fonts/costumize.eot?49350185');
+  src: url('../../fonts/costumize.eot?49350185#iefix') format('embedded-opentype'),
+       url('../../fonts/costumize.woff?49350185') format('woff'),
+       url('../../fonts/costumize.ttf?49350185') format('truetype'),
+       url('../../fonts/costumize.svg?49350185#costumize') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'costumize';
+    src: url('../font/costumize.svg?49350185#costumize') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "costumize";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+.smart-form {
+    color: #666;
+    margin: 0;
+    outline: 0 none;
+    position: relative;
+}
+.well {
+    background: none repeat scroll 0 0 #fbfbfb;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 1px #ececec;
+    position: relative;
+}
+.well {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}
+.no-padding {
+    padding: 0 !important;
+}
+fieldset {
+    border: 0 none;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+}
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+.smart-form *, .smart-form *:after, .smart-form *:before {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+.smart-form *, .smart-form *:after, .smart-form *:before {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+.smart-form *, .smart-form *:after, .smart-form *:before {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+.smart-form fieldset {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+    border: medium none;
+    display: block;
+    padding: 25px 14px 5px;
+    position: relative;
+}
+.smart-form header {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+    color: #232323;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 10px 14px 0;
+    padding: 8px 0;
+}
+.client-form header {
+    background: none repeat scroll 0 0 rgba(248, 248, 248, 0.9);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    border-bottom-style: solid;
+    margin: 0;
+    padding: 15px 13px;
+}
+.smart-form section {
+    margin-bottom: 15px;
+    position: relative;
+}
+.smart-form footer:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.smart-form .btn {
+    box-sizing: border-box;
+}
+.btn {
+    border-radius: 2px;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.05) inset;
+}
+.btn, a:link, button {
+}
+.smart-form footer .btn {
+    cursor: pointer;
+    float: right;
+    font: 300 15px/29px "Open Sans",Helvetica,Arial,sans-serif;
+    height: 31px;
+    margin: 10px 0 0 5px;
+    padding: 0 22px;
+}
+.smart-form .checkbox, .smart-form .radio {
+    color: #404040;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 25px;
+    margin-bottom: 4px;
+    padding-left: 25px;
+}
+.smart-form .checkbox input:checked + i:after, .smart-form .radio input:checked + i:after {
+    opacity: 1;
+}
+.smart-form .checkbox input + i:after {
+    color: #3276b1;
+}
+.smart-form .checkbox input + i:after {
+    content: "";
+    font: 400 16px/19px FontAwesome;
+    height: 15px;
+    left: 1px;
+    text-align: center;
+    top: -1px;
+    width: 15px;
+}
+.smart-form .checkbox input + i:after, .smart-form .radio input + i:after {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.1s ease 0s;
+}
+.smart-form .checkbox input, .smart-form .radio input {
+    left: -9999px;
+    position: absolute;
+}
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    float: left;
+    margin-left: -20px;
+}
+.smart-form .checkbox i, .smart-form .icon-append, .smart-form .icon-prepend, .smart-form .input input, .smart-form .radio i, .smart-form .select select, .smart-form .textarea textarea, .smart-form .toggle i {
+    border-color: #bdbdbd;
+    transition: border-color 0.3s ease 0s;
+}
+.smart-form .checkbox i, .smart-form .radio i {
+    background: none repeat scroll 0 0 #fff;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    height: 17px;
+    left: 0;
+    outline: 0 none;
+    position: absolute;
+    top: 3px;
+    width: 17px;
+}
+.smart-form .note a {
+    font-size: 13px;
+}
+.btn, a:link, button {
+}
+.smart-form .label {
+    color: #333;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19px;
+    margin-bottom: 6px;
+    text-align: left;
+}
+.smart-form .button, .smart-form .checkbox, .smart-form .input, .smart-form .radio, .smart-form .select, .smart-form .textarea, .smart-form .toggle {
+    display: block;
+    font-weight: 400;
+    position: relative;
+}
+.smart-form .icon-append, .smart-form .icon-prepend {
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    width: 22px;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    text-align: center;
+    text-decoration: inherit;
+    text-transform: none;
+    width: 1em;
+}
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+}
+.smart-form .input .icon-append + input, .smart-form .textarea .icon-append + textarea {
+    padding-right: 37px;
+}
+.smart-form .checkbox i, .smart-form .icon-append, .smart-form .icon-prepend, .smart-form .input input, .smart-form .radio i, .smart-form .select select, .smart-form .textarea textarea, .smart-form .toggle i {
+    border-color: #bdbdbd;
+    transition: border-color 0.3s ease 0s;
+}
+.smart-form .input input, .smart-form .select select, .smart-form .textarea textarea {
+    -moz-appearance: none;
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    color: #404040;
+    display: block;
+    font: 13px/16px "Open Sans",Helvetica,Arial,sans-serif;
+    height: 32px;
+    outline: 0 none;
+    padding: 8px 10px;
+    width: 100%;
+}
+.smart-form footer:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.smart-form footer {
+    background: none repeat scroll 0 0 rgba(248, 248, 248, 0.9);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+    padding: 7px 14px 15px;
+}
+.smart-form .icon-append {
+    border-left-style: solid;
+    border-left-width: 1px;
+    padding-left: 3px;
+    right: 5px;
+}
+.smart-form .icon-append, .smart-form .icon-prepend {
+    color: #a2a2a2;
+}
+.icon-menu:before { content: '\e815'; } /* '' */
+.icon-wallet:before { content: '\e802'; } /* '' */
+.icon-right-open-big:before { content: '\e813'; } /* '' */
+.icon-home-outline:before { content: '\e822'; } /* '' */
+.icon-tag-1:before { content: '\e80f'; } /* '' */
+.icon-tags:before { content: '\e810'; } /* '' */
+.icon-forward-outline:before { content: '\e812'; } /* '' */
+.icon-chat-alt:before { content: '\e811'; } /* '' */
+.icon-basket:before { content: '\e823'; } /* '' */
+.icon-dribbble:before { content: '\e819'; } /* '' */
+.icon-linkedin:before { content: '\e81c'; } /* '' */
+.icon-skype:before { content: '\e817'; } /* '' */
+.icon-twitter:before { content: '\e816'; } /* '' */
+.icon-vimeo:before { content: '\e81a'; } /* '' */
+.icon-ebay:before { content: '\e818'; } /* '' */
+.icon-facebook:before { content: '\e81b'; } /* '' */
+.icon-search:before { content: '\e80b'; } /* '' */
+.icon-heart:before { content: '\e80a'; } /* '' */
+.icon-left-open-big:before { content: '\e814'; } /* '' */
+.icon-user:before { content: '\e81f'; } /* '' */
+.icon-attach:before { content: '\e80e'; } /* '' */
+.icon-lock:before { content: '\e809'; } /* '' */
+.icon-eye:before { content: '\e808'; } /* '' */
+.icon-tag:before { content: '\e807'; } /* '' */
+.icon-thumbs-up:before { content: '\e804'; } /* '' */
+.icon-comment:before { content: '\e803'; } /* '' */
+.icon-location:before { content: '\e806'; } /* '' */
+.icon-trash:before { content: '\e820'; } /* '' */
+.icon-doc:before { content: '\e805'; } /* '' */
+.icon-note:before { content: '\e821'; } /* '' */
+.icon-cog:before { content: '\e80c'; } /* '' */
+.icon-cloud:before { content: '\e80d'; } /* '' */
+.icon-truck:before { content: '\e81e'; } /* '' */
+.icon-money:before { content: '\e801'; } /* '' */
+.icon-t-shirt:before { content: '\e800'; } /* '' */
+.icon-star:before { content: '\e81d'; } /* '' */
+.smart-form .state-error + em {
+    color: #d56161;
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    line-height: 15px;
+    margin-top: 6px;
+    padding: 0 1px;
+}
+.smart-form .checkbox.state-error i, .smart-form .radio.state-error i, .smart-form .state-error input, .smart-form .state-error select, .smart-form .state-error textarea, .smart-form .toggle.state-error i {
+    background: none repeat scroll 0 0 #fff0f0;
+    border-color: #a90329;
+}
+.state-error .icon-append, .state-error .icon-prepend {
+    color: #ed1c24;
+}

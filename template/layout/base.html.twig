@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Administradora SAC, Administradora de condominio">
+        <meta name="author" content="Edgar Messia (pronet21.com)">
+        {% block head %}
+        <link href="{{ constant("ROOT")}}css/bootstrap.css" rel="stylesheet">
+        <link href="{{ constant("ROOT")}}css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="{{ constant("ROOT")}}css/docs.css" rel="stylesheet">
+        <link href="{{ constant("ROOT")}}css/prettify.css" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ constant("ROOT")}}img/favicon.png">
+        <title>{% block titulo %}{% endblock %} - {{ constant('TITULO')}}</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'misc/navbar.html.twig' %}
+        {% block header %}
+        <header class="jumbotron subhead" id="overview">
+            <div class="container">
+                <h1>Sac en Línea</h1>
+                <p class="lead">Administración de Condominio por Internet.</p>
+            </div>
+        </header>
+        {% endblock %}
+        <div id="content">{% block contenido %}{% endblock %}</div>
+        <div id="footer" class="footer">
+        {% block footer %}
+                <div class="container">
+                    <p>Calle Nueva, Qta Rimar, Planta Baja, Palmar Este. Caraballeda, Estado Vargas.</p>
+                    <p>Teléfonos: (0212)355 8583 - 8477 Fax: (0212)355 8605</p>
+                    <p>Atención al Cliente: Lunes a Viernes de 9:00am - 12:00m / 2:00pm - 4:30pm</p>
+                    <p>E-mail: info@administradorasac.com</p>
+                    <ul class="footer-links">
+                        <li><a href="#">Administradora SAC</a></li>
+                        <li class="muted">&middot;</li>
+                        <li><a href="index.php#nuestra-empresa">Nuestra Empresa</a></li>
+                        <li class="muted">&middot;</li>
+                        <li><a href="index.php#mision-vision">Misión y Visión</a></li>
+                        <li class="muted">&middot;</li>
+                        <li><a href="index.php#contactenos">Contáctenos</a></li>
+                    </ul>
+                </div>
+        {% endblock %}
+            </div>
+            <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="js/bootstrap-affix.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/prettify.js"></script>
+    <script src="js/application.js"></script>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<aside id="left-panel">
+
+<!-- User info -->
+<div class="login-info">
+<span> <!-- User image size is adjusted inside CSS, it should stay as is --> 
+
+<a data-action="toggleShortcut" id="show-shortcut" href="javascript:void(0);">
+<img class="online" alt="me" src="{{ constant('ROOT') }}img/avatars/male.png"> 
+<span>
+{{ session.usuario.nombre }}
+</span>
+<i class="fa fa-angle-down"></i>
+</a> 
+
+</span>
+</div>
+<!-- end user info -->
+
+<!-- NAVIGATION : This navigation is also responsive
+
+To make this navigation dynamic please make sure to link the node
+(the reference to the nav > ul) after page load. Or the navigation
+will not initialize.
+-->
+<nav>
+<!-- 
+NOTE: Notice the gaps after each icon usage <i></i>..
+Please note that these links work a bit different than
+traditional href="" links. See documentation for details.
+-->
+
+<ul style="">
+<li class="active">
+<a title="Cartelera" href="inmueble/?accion=cartelera"><i class="fa fa-lg fa-fw fa-dashboard"></i> <span class="menu-item-parent">Cartelera</span></a>
+</li>
+<li>
+<a href="#"><i class="fa fa-lg fa-fw fa-user"></i> <span class="menu-item-parent">Propietario</span></a>
+<ul>
+<li><a href="propietario/?accion=actualizar">Datos Personales</a>
+</li>
+<li><a href="propietario/?accion=actualizar&id=clave">Clave de Acceso</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#"><i class="fa fa-lg fa-fw fa-building-o"></i> <span class="menu-item-parent">Junta de Condominio</span></a>
+<ul>
+<li>
+    <a href="inmueble/?accion=junta-condominio">Integrantes</a>
+</li>
+{% if session.junta != '' %}
+<li>
+    <a href="inmueble/?accion=cuenta">Estado de Cuenta Inmueble</a>
+</li>
+{% endif %}
+<!--li>
+    <a href="ajax/jqgrid.html">Autorización pre-recibo</a>
+</li-->
+</ul>
+</li>
+<li>
+    <a href="cuenta/?accion=listar">
+        <i class="fa fa-lg fa-fw fa-database"></i> 
+        <span class="menu-item-parent">Estado de Cuenta</span>
+        {%if recibos > 0 %}
+        <span class="badge bg-color-greenLight pull-right inbox-badge">{{ recibos }}</span>
+        {% endif %}
+    </a>
+</li>
+<li>
+    <a href="cuenta/?accion=solvencia">
+        <i class="fa fa-lg fa-fw fa-files-o"><em class="flash animated">!</em></i> 
+        <span class="menu-item-parent">Solvencia Condominio</span>
+    </a>
+</li>
+<li>
+<a href="pago/?accion=registrar"><i class="fa fa-lg fa-fw fa-money"></i> <span class="menu-item-parent">Reportar Pago</span></a>
+</li>
+<li>
+<a href="pago/?accion=listarRecibosCancelados"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Recibos Cancelados</span></a>
+</li>
+<li>
+<a href="mensajes/?accion=bandeja-entrada"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Mensajes</span>{% if mensajes > 0 %}<span class="badge bg-color-orange pull-right inbox-badge">{{ mensajes }}</span>{% endif %}</a>
+</li>
+<li>
+    <a href="bitacora/?accion=listar"><i class="fa fa-lg fa-fw fa-history"></i>Histórico Operaciones</a>
+</li>
+<li>
+    <a target="parent" href="propietario?logout=true" title="Cerrar Sesión" data-action="userLogout" data-logout-msg=""><i class="fa fa-lg fa-fw fa-sign-out"></i> <span class="menu-item-parent">Cerrar Sesión</span></a>
+</li>
+</ul>
+</nav>
+<span data-action="minifyMenu" class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
