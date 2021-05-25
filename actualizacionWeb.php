@@ -48,16 +48,21 @@ foreach ($lineas as $linea) {
     $registro = explode("\t", $linea);
     if ($registro[0] != "") {
         $registro = Array(
-            "id" => $registro[0],            
-            "nombre_inmueble" => $registro[1],
-            "deuda" => $registro[2],
-            "fondo_reserva" => $registro[3],
-            "beneficiario" => $registro[4],
-            "banco" => '',
-            "numero_cuenta" => '',
-            "supervision" => '0',
-            "RIF" => $registro[5],
-            "meses_mora"=>$registro[6]);
+            'id'                => $registro[0],            
+            'nombre_inmueble'   => $registro[1],
+            'deuda'             => $registro[2],
+            'fondo_reserva'     => $registro[3],
+            'beneficiario'      => $registro[4],
+            'banco'             => '',
+            'numero_cuenta'     => '',
+            'supervision'       => '0',
+            'RIF'               => $registro[5],
+            'meses_mora'        => $registro[6],
+            'porc_mora'         => $registro[7],
+            'facturacion_usd'   => $registro[8],
+            'tasa_cambio'       => $registro[9],
+            'redondea_usd'      => $registro[10]
+        );
         
         $r = $inmueble->insertar($registro);
         
@@ -134,16 +139,16 @@ foreach ($lineas as $linea) {
     if ($registro[0] != "") {
         
        $registro = Array(
-                    'nombre' => utf8_encode($registro[0]),
-                    'clave' => $registro[1],
-                    'email' => $registro[2],
-                    'cedula' => $registro[3],
-                    'telefono1' => $registro[4],
-                    'telefono2' => $registro[5],
-                    'telefono3' => $registro[6],
-                    'direccion' => utf8_encode($registro[7]),
-                    'recibos' => $registro[8],
-                    'email_alternativo' => $registro[9]
+            'nombre' => utf8_encode($registro[0]),
+            'clave' => $registro[1],
+            'email' => $registro[2],
+            'cedula' => $registro[3],
+            'telefono1' => $registro[4],
+            'telefono2' => $registro[5],
+            'telefono3' => $registro[6],
+            'direccion' => utf8_encode($registro[7]),
+            'recibos' => $registro[8],
+            'email_alternativo' => $registro[9]
            );
        
        $r = $propietario->insertar($registro);
@@ -171,14 +176,16 @@ foreach ($lineas as $linea) {
     $registro = explode("\t", $linea);
 
     if ($registro[0] != "") {
+        
         $registro = Array(
-            'cedula' => $registro[0],
-            'id_inmueble' => $registro[1],
-            'apto' => $registro[2],
-            'alicuota' => $registro[3],
-            'meses_pendiente' => $registro[4],
-            'deuda_total' => str_replace("\r", "", $registro[5])
-               );
+            'cedula'            => $registro[0],
+            'id_inmueble'       => $registro[1],
+            'apto'              => $registro[2],
+            'alicuota'          => $registro[3],
+            'meses_pendiente'   => $registro[4],
+            'deuda_total'       => $registro[5],
+            'deuda_usd'         => str_replace("\r", "", $registro[6])
+        );
         
         $r = $propiedades->insertar($registro);
         if($r["suceed"]==FALSE){
@@ -201,14 +208,15 @@ foreach ($lineas as $linea) {
     if ($registro[0] != "") {
         
         $registro = Array(
-            'id_inmueble' => $registro[0],
-            'apto' => $registro[1],
-            'numero_factura' => $registro[2],
-            'periodo' => $registro[3],
-            'facturado' => $registro[4],
-            'abonado' => $registro[5],
-            'fecha' => $registro[6]
-                );
+            'id_inmueble'       => $registro[0],
+            'apto'              => $registro[1],
+            'numero_factura'    => $registro[2],
+            'periodo'           => $registro[3],
+            'facturado'         => $registro[4],
+            'abonado'           => $registro[5],
+            'fecha'             => $registro[6],
+            'facturado_usd'     => $registro[7]
+        );
         
         $r = $facturas->insertar($registro);
                 
@@ -231,11 +239,11 @@ foreach ($lineas as $linea) {
     if ($registro[0] != "") {
 
         $registro = Array(
-            "id_factura" => $registro[0],
-            "detalle" => utf8_encode($registro[1]),
-            "codigo_gasto" => $registro[2],
-            "comun" => $registro[3],
-            "monto" => str_replace("\r","",$registro[4])
+            'id_factura'    => $registro[0],
+            'detalle'       => utf8_encode($registro[1]),
+            'codigo_gasto'  => $registro[2],
+            'comun'         => $registro[3],
+            'monto'         => str_replace("\r","",$registro[4])
                 );
         
         $r = $facturas->insertar_detalle_factura($registro);
@@ -260,14 +268,14 @@ foreach ($lineas as $linea) {
     if ($registro[0] != "") {
 
         $registro = Array(
-            "numero_recibo" => $registro[0],
-            "fecha_movimiento" => $registro[1],
-            "forma_pago" => utf8_encode($registro[2]),
-            "monto" => $registro[3],
-            "cuenta" => utf8_encode($registro[4]),
-            "descripcion" => utf8_encode($registro[5]),
-            "id_inmueble" => $registro[6],
-            "id_apto" => str_replace("\r","",$registro[7])
+            'numero_recibo'     => $registro[0],
+            'fecha_movimiento'  => $registro[1],
+            'forma_pago'        => utf8_encode($registro[2]),
+            'monto'             => $registro[3],
+            'cuenta'            => utf8_encode($registro[4]),
+            'descripcion'       => utf8_encode($registro[5]),
+            'id_inmueble'       => $registro[6],
+            'id_apto'           => str_replace("\r","",$registro[7])
             
         );
 
@@ -296,16 +304,16 @@ foreach ($lineas as $linea) {
         if ($registro[0] != "") {
 
             $registro = Array(
-                "id_inmueble" => $registro[0],
-                "apto" => $registro[1],
-                "propietario" => utf8_encode($registro[2]),
-                "recibos" => $registro[3],
-                "deuda" => str_replace("\r", "", $registro[4])
+                'id_inmueble'   => $registro[0],
+                'apto'          => $registro[1],
+                'propietario'   => utf8_encode($registro[2]),
+                'recibos'       => $registro[3],
+                'deuda'         => $registro[4],
+                'deuda_usd'     => str_replace("\r", "", $registro[5]
+                )
             );
 
-
             $r = $inmueble->insertarEstadoDeCuentaInmueble($registro);
-
 
             if ($r["suceed"] == FALSE) {
                 die($r['stats']['errno'] . "<br />" . $r['stats']['error'] . '<br/>' . $r['query']);
@@ -408,7 +416,7 @@ foreach ($lineas as $linea) {
 $fecha = JFILE::read(ACTUALIZ."ACTUALIZACION.txt");
 echo "****FIN DEL PROCESO DE ACTUALIZACION****<br />";
 echo "Información actualizada al: ".$fecha."<br/>";
-$mail = new mailto(SMTP);
+$mail = new mailto();
 $r = $mail->enviar_email("Actualización Sac en Línea ".$fecha,$mensaje, "", 'administradorasac@gmail.com',"");
         
 if ($r=="") {

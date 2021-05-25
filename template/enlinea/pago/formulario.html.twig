@@ -113,9 +113,10 @@ no tiene recibos pendiente por cancelar.
 <th style="text-align: center">Pagar</th>
 <th style="text-align: center" class="hidden-xs">Nº Factura</th>
 <th style="text-align: center">Período</th>
-<th style="text-align: center" class="hidden-xs">Facturado</th>
-<th style="text-align: center" class="hidden-xs">Abonado</th>
-<th style="text-align: center">Saldo</th>
+<th style="text-align: center" class="hidden-xs">Facturado Bs</th>
+<th style="text-align: center" class="hidden-xs">Abonado Bs</th>
+<th style="text-align: center">Saldo Bs</th>
+<th style="text-align: center">Saldo USD</th>
 <th style="text-align: center" class="">Estatus</th>
 <th style="text-align: center" class="hidden">Banco</th>
 <th style="text-align: center" class="hidden">Cuenta</th>
@@ -146,6 +147,7 @@ no tiene recibos pendiente por cancelar.
 {{ format_number(factura.facturado - factura.abonado) }}
 </span>
 </td>
+<td><span class="pull-right">{{ format_number(factura.facturado_usd) }}</span></td>
 <td>{% if factura.pagado == 0 %} 
     <span class="label label-sm label-success">Pendiente</span> 
     {% else %}
@@ -164,6 +166,7 @@ no tiene recibos pendiente por cancelar.
 <td class="hidden-xs"></td>
 <td class="hidden-xs"></td>
 <td><span class="pull-right">{{format_number(cuenta.propiedades.deuda_total) }}<span class="pull-right"></td>
+<td></td>
 <td></td>
 <td class="hidden"></td>
 <td class="hidden"></td>

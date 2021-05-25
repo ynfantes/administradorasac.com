@@ -111,7 +111,7 @@ class propietario extends db implements crud  {
                     
                     // se envia el email de confirmación
                     $ini = parse_ini_file('emails.ini');
-                    $mail = new mailto(SMTP);
+                    $mail = new mailto();
                     
                     $mensaje = sprintf($ini['CUERPO_RECUPERAR_CONTRASENA'],
                             $result['data'][0]['clave']);

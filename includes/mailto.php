@@ -52,10 +52,10 @@ class mailto {
                 $this->mail->SMTPAuth = true;
                 $this->mail->Username = $this->user;
                 $this->mail->Password = $this->pass;
-//                echo "Usuario: ".  $this->user."<br>";
-//            echo "Pass: ".  $this->pass."<br>";
-//            echo "Port: ". $this->port."<br>";
-//            echo "Host: ".  $this->host."<br>";
+                // echo "Usuario: ". $this->user."<br>";
+                // echo "Pass: ".    $this->pass."<br>";
+                // echo "Port: ".    $this->port."<br>";
+                // echo "Host: ".    $this->host."<br>";
                 break;
           case sendMail:
               $this->mail->IsSendmail();
@@ -97,7 +97,8 @@ class mailto {
             $this->mail->AddAddress('ynfantes@gmail.com','Edgar Messia');
         } else {
             $this->mail->AddAddress($emailDestinatario, $nombreDestinatario);
-            //$this->mail->AddBCC("pagoscondominio@administradorasac.com");
+            // $this->mail->AddBCC("pagoscondominio@administradorasac.com");
+            //$this->mail->AddBCC("ticket.soporte21@gmail.com");
         }
         
         $this->mail->IsHTML(true);

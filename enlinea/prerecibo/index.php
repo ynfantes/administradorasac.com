@@ -30,7 +30,7 @@ switch ($accion) {
             if ($documento['suceed'] && count($documento['data'] > 0)) {
                 // enviamos un email de notificación a la administradora
                 $ini = parse_ini_file('../../includes/emails.ini');
-                $mail = new mailto(SMTP);
+                $mail = new mailto();
                 $destinatario = $ini['CUENTA_FACTURACION'];
                 $subject = sprintf($ini['ASUNTO_MENSAJE_CONFIRMACION_AUTORIZACION_PRERECIBO'], 
                         $session['junta'],date('m-Y', strtotime($documento['data'][0]['periodo']))

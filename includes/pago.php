@@ -187,7 +187,7 @@ class pago extends db implements crud {
                         $resultado['mensaje'] = "Pago procesado con éxito!";
                         // se envia el email de confirmación
                         $ini = parse_ini_file('emails.ini');
-                        $mail = new mailto(SMTP);
+                        $mail = new mailto();
                         if (isset($_SESSION['usuario']['directorio'])) {
                             $propietario = 'Propietario(a)';
                         } else {
@@ -364,7 +364,7 @@ class pago extends db implements crud {
             $subject.= "Pago de Condominio";
             
             $ini = parse_ini_file('emails.ini');
-            $mail = new mailto(SMTP);
+            $mail = new mailto();
             $propietario = 'Propietario(a)';
             
             //$forma_pago = $data['data'][0]['tipo_pago']='D'? 'DEPOSITO':'TRANSFERENCIA';
@@ -414,7 +414,7 @@ class pago extends db implements crud {
     
     public function enviarEmailPagoProcesado($id,$estatus,$data) {
         $ini = parse_ini_file('emails.ini');
-        $mail = new mailto(SMTP);
+        $mail = new mailto();
         
         $s = strtoupper($estatus)=='A' ? "CONFIRMACION" : "RECHAZO";
         $m = strtoupper($estatus)=='A' ? "CONFIRMACION" : "RECHAZO";

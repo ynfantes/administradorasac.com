@@ -81,7 +81,8 @@ Inmueble
                             <th style="text-align: center">Apartamento</th>
                             <!--th style="text-align: center" class="hidden-xs">Propietario</th-->
                             <th style="text-align: center">Nº Recibos</th>
-                            <th style="text-align: center">Deuda</th>
+                            <th style="text-align: center">Deuda Bs</th>
+                            <th style="text-align: center">Deuda USD</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,16 +91,19 @@ Inmueble
                                     <strong>Atención!</strong> No se puede cargar esta información.</div></td></tr>
                         {% else %}
                             {% set total = 0 %}
+                            {% set total_usd = 0 %}
                             {% set n = 0 %}
                             {% for detalle in cuenta.cuenta %}
                                 {% if detalle.apto !=  'U' ~ cuenta.inmueble.id %}
                                 {% set total = total + detalle.deuda %}
+                                {% set total_usd = total_usd + detalle.deuda_usd %}
                                 {% set n = n + 1 %}
                                 <tr>
                                     <td>{{ detalle.apto }}</td>
-                                    <!--td class="hidden-xs">{{ detalle.propietario }}</td-->
-                                    <td style="text-align: center;">{{ detalle.recibos }}</td>
-                                    <td><span class="pull-right">{{ format_number(detalle.deuda) }}</span></td>
+                                    <!--td class="hidden-xs">{{detalle.propietario}}</td-->
+                                    <td style="text-align: center;">{{detalle.recibos}}</td>
+                                    <td><span class="pull-right">{{format_number(detalle.deuda)}}</span></td>
+                                    <td><span class="pull-right">{{format_number(detalle.deuda_usd)}}</span></td>
                                 </tr>
                                 {% endif %}
                             {% endfor %}
@@ -107,7 +111,8 @@ Inmueble
                                     <td><strong>Totales</strong>    </td>
                                     <!--td class="hidden-xs">&nbsp;</td-->
                                     <td style="text-align: center"><strong>{{ n }}</strong></td>
-                                    <td><span class="pull-right"><strong>{{ format_number(total) }}</strong></span></td>
+                                    <td><span class="pull-right"><strong>{{format_number(total)}}</strong></span></td>
+                                    <td><span class="pull-right"><strong>{{format_number(total_usd)}}</strong></span></td>
                                 </tr>
                         {% endif %}
                     </tbody>

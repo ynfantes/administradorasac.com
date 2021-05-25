@@ -18,7 +18,7 @@ try
     if (isset($_GET['email'])) {
         $archivo = $html2pdf->Output('','S');
         
-        $mail = new mailto(SMTP);
+        $mail = new mailto();
 
         $r = $mail->enviar_email("Reporte de Transacciones Web", "Adunto le estoy enviando de transacciones.<br><br>".$session['usuario']['nombre_completo'], '', MAIL_CAJERO_WEB, "",null,null,$archivo);
         $archivo='';

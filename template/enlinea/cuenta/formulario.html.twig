@@ -60,7 +60,8 @@ data-widget-custombutton="false" >
 <th style="text-align: center">Apartamento</th>
 <th style="text-align: center" class="hidden">Deuda<small>Inmueble</small></th>
 <th style="text-align: center" class="hidden">Fondo<small>de Reserva</small></th>
-<th style="text-align: center">Deuda Total</th>
+<th style="text-align: center">Deuda Total Bs</th>
+<th style="text-align: center">Deuda Total USD</th>
 </tr>
 </thead>
 <tbody>
@@ -75,6 +76,7 @@ data-widget-custombutton="false" >
 {{ format_number(cuenta.propiedades.deuda_total) }}
 {% endif %}
 </span></td>
+<td><span class="pull-right">{{ format_number(cuenta.propiedades.deuda_usd) }}</span></td>
 </tr>
 </tbody>
 </table>
@@ -97,9 +99,10 @@ no tiene recibos pendiente de pago.
 <table class="table table-striped table-bordered table-hover">
 <thead class="thin-border-bottom"><tr><th style="text-align: center">Nº Factura</th>
 <th style="text-align: center">Período</th>
-<th style="text-align: center" class="hidden-xs">Facturado</th>
-<th style="text-align: center" class="hidden-xs">Abonado</th>
-<th style="text-align: center">Saldo</th>
+<th style="text-align: center" class="hidden-xs">Facturado Bs.</th>
+<th style="text-align: center" class="hidden-xs">Abonado Bs.</th>
+<th style="text-align: center">Saldo Bs</th>
+<th style="text-align: center">Saldo USD</th>
 <th style="text-align: center" class="hidden-xs">Aviso de Cobro</th>
 </thead>
 <tbody>
@@ -112,10 +115,11 @@ no tiene recibos pendiente de pago.
 <abbr title="Aviso de Cobro NO DISPONIBLE" class="initialism">{{ factura.numero_factura}}</abbr>
 {%endif %}
 </td>
-<td style="text-align: center">{{ factura.periodo | date("m-Y") | upper}}</td>
-<td class="hidden-xs"><span class="pull-right">{{ format_number(factura.facturado) }}</span></td>
-<td class="hidden-xs"><span class="pull-right">{{ format_number(factura.abonado) }}</span></td>
-<td><span class="pull-right">{{ format_number(factura.facturado - factura.abonado) }}</span></td>
+<td style="text-align: center">{{factura.periodo | date("m-Y") | upper}}</td>
+<td class="hidden-xs"><span class="pull-right">{{format_number(factura.facturado)}}</span></td>
+<td class="hidden-xs"><span class="pull-right">{{format_number(factura.abonado)}}</span></td>
+<td><span class="pull-right">{{format_number(factura.facturado - factura.abonado)}}</span></td>
+<td><span class="pull-right">{{format_number(factura.facturado_usd)}}</span></td>
 <td class="hidden-xs">{% if factura.aviso %}
 <a class="label label-success arrowed" href="{{ constant('URL_SISTEMA')}}/avisos/ver/{{ factura.numero_factura}}" target="_blank">Disponible</a>
 {% else %}
