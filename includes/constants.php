@@ -3,30 +3,26 @@
 date_default_timezone_set("America/La_Paz");
 // </editor-fold>
 
-// <editor-fold defaultstate="collapsed" desc="init">
 $debug = false;
 $sistema = "/";
 $email_error = false;
 $mostrar_error = true;
 
-// </editor-fold>
-// <editor-fold defaultstate="collapsed" desc="Cheqeuo servidor">
 
 if ($_SERVER['SERVER_NAME'] == "www.administradorasac.com" | $_SERVER['SERVER_NAME'] == "administradorasac.com") {
-    $user = "";
-    $password = "";
-    $db = "";
+    $user = "sac_root";
+    $password = "dmn+str";
+    $db = "administradora_sac";
     $email_error = true;
     $mostrar_error = true;
     $debug = FALSE;
-    
+
 } else {
 
     $sistema = "/administradorasac.com/";
     $user = "root";
     $password = "";
     $db = "administradora_sac";
-
 }
 
 // </editor-fold>
@@ -118,10 +114,10 @@ define("ARCHIVO_CUENTAS_DE_FONDO","CUENTAS_FONDO.txt");
 define("ARCHIVO_MOVIMIENTOS_DE_FONDO","MOVIMIENTO_FONDO.txt");
 define("ARCHIVO_ACTUALIZACION","ACTUALIZACION.txt");
 define("ARCHIVO_MOVIMIENTO_CAJA","MOVIMIENTO_CAJA.txt");
-define("SMTP_SERVER","");
+define("SMTP_SERVER","mail.administradorasac.com");
 define("PORT",587);
-define("USER_MAIL","");
-define("PASS_MAIL","");
+define("USER_MAIL","pagoscondominio@administradorasac.com");
+define("PASS_MAIL","10537439");
 define("MESES_COBRANZA","3");
 define("GRAFICO_FACTURACION",1);
 define("GRAFICO_COBRANZA",1);

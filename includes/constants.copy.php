@@ -13,17 +13,14 @@ $mostrar_error = true;
 // <editor-fold defaultstate="collapsed" desc="Cheqeuo servidor">
 
 if ($_SERVER['SERVER_NAME'] == "www.administradorasac.com" | $_SERVER['SERVER_NAME'] == "administradorasac.com") {
-    $user = "sac_root";
-    $password = "dmn+str";
+    $user = "";
+    $password = "";
     $db = "administradora_sac";
     $email_error = true;
     $mostrar_error = true;
     $debug = FALSE;
-    //define("HOST", "200.74.207.8");
+
 } else {
-//    $user = "root";
-//    $password = "";
-//    $db = "grupvenc_valoriza2";
     $sistema = "/administradorasac.com/";
     $user = "root";
     $password = "";
@@ -119,10 +116,10 @@ define("ARCHIVO_CUENTAS_DE_FONDO","CUENTAS_FONDO.txt");
 define("ARCHIVO_MOVIMIENTOS_DE_FONDO","MOVIMIENTO_FONDO.txt");
 define("ARCHIVO_ACTUALIZACION","ACTUALIZACION.txt");
 define("ARCHIVO_MOVIMIENTO_CAJA","MOVIMIENTO_CAJA.txt");
-define("SMTP_SERVER","mail.administradorasac.com");
+define("SMTP_SERVER","");
 define("PORT",587);
-define("USER_MAIL","pagoscondominio@administradorasac.com");
-define("PASS_MAIL","10537439");
+define("USER_MAIL","");
+define("PASS_MAIL","");
 define("MESES_COBRANZA","3");
 define("GRAFICO_FACTURACION",1);
 define("GRAFICO_COBRANZA",1);
