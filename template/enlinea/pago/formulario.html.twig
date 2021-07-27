@@ -134,7 +134,7 @@ no tiene recibos pendiente por cancelar.
 <input type="hidden" name="periodo[]" value="{{ factura.periodo }}" />
 <input type="hidden" name="facturas[]" value="{{ factura.numero_factura }}" />
 {% if factura.aviso %}
-<a href="{{constant('URL_SISTEMA')}}/avisos/ver/{{ factura.numero_factura}}" target="_blank">{{ factura.numero_factura}}</a>
+<a href="{{constant('URL_SISTEMA')}}/avisos/ver/{{ factura.numero_factura}}" target="_blank">{{factura.numero_factura}}</a>
 {% else %}
 <abbr title="Aviso de Cobro NO DISPONIBLE" class="initialism">{{ factura.numero_factura}}</abbr>
 {%endif %}
@@ -144,10 +144,10 @@ no tiene recibos pendiente por cancelar.
 <td class="hidden-xs"><span class="pull-right">{{ format_number(factura.abonado) }}</span></td>
 <td><span class="pull-right">
 <input type="hidden" name="montos[]" value="{{ factura.facturado - factura.abonado }}" />
-{{ format_number(factura.facturado - factura.abonado) }}
+{{format_number(factura.facturado - factura.abonado)}}
 </span>
 </td>
-<td><span class="pull-right">{{ format_number(factura.facturado_usd) }}</span></td>
+<td><span class="pull-right">{{format_number(factura.facturado_usd)}}</span></td>
 <td>{% if factura.pagado == 0 %} 
     <span class="label label-sm label-success">Pendiente</span> 
     {% else %}
@@ -193,12 +193,13 @@ no tiene recibos pendiente por cancelar.
 <select class="form-control input-lg" name="tipo_pago">
 <option value="D">Depósito</option>
 <option value="T" selected>Transferencia</option>
+<option value="USD">USD Efectivo</option>
 </select>
 </div>
 </div>
 </div>
-<input type="hidden" id="estatus" name="estatus" value="P" class="">
-<input type="hidden" id="enviado" name="enviado" value="0" class="">
+<input type='hidden' id='estatus' name='estatus' value='P' class='' />
+<input type='hidden' id='enviado' name='enviado' value='0' class='' />
 <div class="col-sm-4">
 <div class="form-group">
 <label id="numero">Número de referencia:</label>
@@ -215,7 +216,7 @@ no tiene recibos pendiente por cancelar.
 <!--input type="text" id="numero_cuenta" name="numero_cuenta" placeholder="Número de cuenta" class="form-control input-lg" value="{#{ cuentas[0].inmueble.numero_cuenta }#}" maxlength="20"-->
 <span class="input-group-addon"><i class="fa fa-th-list fa-lg fa-fw"></i></span>
 {% if cuenta.inmueble.numero_cuenta %}
-<select class="form-control input-lg" name="numero_cuenta">
+<select class="form-control input-lg" name="numero_cuenta" id='numero_cuenta'>
 {% set dato = '' %}
 {% for cuenta in cuentas %}
     {% if dato != cuenta.inmueble.numero_cuenta %}
@@ -225,7 +226,7 @@ no tiene recibos pendiente por cancelar.
 {% endfor %}
 </select>
 {% else%}
-<input class="form-control input-lg" name="numero_cuenta" placeholder="Número de cuenta" value="">
+<input id='numero_cuenta' class="form-control input-lg" name="numero_cuenta" placeholder="Número de cuenta" value="">
 {% endif %}
 
 </div>
@@ -377,24 +378,57 @@ no tiene recibos pendiente por cancelar.
         $(":checkbox").click(function() {
             $('input[name|="banco_destino"]').val($(this).closest("tr").find("td:eq(8)").text());
             $('input[name|="numero_cuenta"]').val($(this).closest("tr").find("td:eq(9)").text());
-            /*var monto = 0;
-            $("input:checked").each(function() {
-                monto = parseFloat(monto) + (parseFloat($(this).closest("tr").find("td:eq(5)").text().replace(".", "").replace(",", ".")) * 100);
-            });
-            monto = monto / 100;
-            $("#monto").val(monto.formatCurrency());*/
+            
         });
+        
         $("select[name|='tipo_pago']").change(function() {
             
-            if ($(this).val() == "T") {
-                $("#banco_origen").attr('disabled', false);
-                $('#numero').html("Código Transferencia:");
-            } else {
-                $("#banco_origen").attr('disabled', true);
-                $("#banco_origen").val('');
-                $('#numero').html("Número Depósito:");
+            const banco_origen          = $("#banco_origen");
+            const banco_destino         = $('#banco_destino');
+            const lbl_rereferencia      = $('#numero');
+            const numero_referencia     = $('#numero_documento');
+            const numero_cedula_titular = $('.cedula');
+            const numero_cuenta         = $('#numero_cuenta');
+            const monto_pagar           = $('#monto');
+
+            monto_pagar.val('0,00');
+            monto_pagar.attr('readonly',false);
+            banco_destino.attr('disabled', false);
+            numero_referencia.attr('disabled',false);
+            numero_cuenta.attr('disabled',false);
+
+            switch($(this).val()) {
+                
+                case 'T':
+                    banco_origen.attr('disabled', false);
+                    lbl_rereferencia.html("Código Transferencia:");
+                    numero_cedula_titular.show('fast');
+                    break;          
+
+
+                case 'D':
+                    banco_origen.attr('disabled', true);
+                    banco_origen.val('');
+                    lbl_rereferencia.html("Número Depósito:");
+                    numero_cedula_titular.hide('fast');
+                    break;
+
+                case 'USD':
+                    numero_referencia.attr('disabled',true);
+                    numero_cuenta.attr('disabled',true);
+                    banco_origen.attr('disabled', true);
+                    banco_destino.attr('disabled', true);
+                    numero_cedula_titular.hide('fast');
+                    let monto = 0;
+                    $("input:checked").each(function() {
+                        const  monto_factura = $("input[name|='montos[]']").eq($(this).val()).val();
+                        monto = parseFloat(monto) + parseFloat(monto_factura);
+                    });
+                    monto_pagar.val(monto.formatCurrency());
+                    monto_pagar.attr('readonly',true);
+                break;
+
             }
-            $('.cedula').toggle();
         });
         
         //Bootstrap Wizard Validations

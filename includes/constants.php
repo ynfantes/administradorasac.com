@@ -75,7 +75,7 @@ $loader = new Twig_Loader_Filesystem(SERVER_ROOT . 'template');
 $twig = new Twig_Environment($loader, array(
             'debug' => TRUE,
             'cache' => SERVER_ROOT . 'cache',
-            'cache' => true,
+            'cache' => false,
             "auto_reload" => TRUE)
 );
 if (isset($_SESSION))

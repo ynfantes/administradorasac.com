@@ -135,15 +135,20 @@ switch ($accion) {
             $celular = str_replace(")", "", $celular);
             $celular = str_replace("-", "", $celular);
             $celular = str_replace(" ", "", $celular);
-            $datos_contacto = Array('email'=>$data['email'],'telefono3'=>$celular,'modificado'=>1);
+            $datos_contacto = Array( 
+                'email' => $data['email'],
+                'telefono3' => $celular,
+                'modificado' => 1
+            );
             $propietario->actualizar($session['usuario']['id'], $datos_contacto);
             $_SESSION['usuario']['email']=$data['email'];
             $_SESSION['usuario']['telefono3']=$celular;
         }
         if (isset($_FILES['soporte'])) {
+            
             $file = explode(".",$_FILES['soporte']['name']);
             $extension = strtolower(end($file));
-            $data['soporte']=$data['tipo_pago'].$data['numero_documento'].'_'.$data['id_inmueble'][0].'_'.$data['id_apto'][0].'.'.$extension;
+            $data['soporte'] = $data['tipo_pago'].$data['numero_documento'].'_'.$data['id_inmueble'][0].'_'.$data['id_apto'][0].'.'.$extension;
             $tempFile = $_FILES['soporte']['tmp_name'];
             $mainFile = $data['soporte'];
             move_uploaded_file($tempFile,"soportes/".$mainFile);
@@ -196,29 +201,17 @@ switch ($accion) {
             foreach ($propiedades['data'] as $propiedad) {
 
             $inmueble = $inmuebles->ver($propiedad['id_inmueble']);
-            $factura = $facturas->estadoDeCuenta($propiedad['id_inmueble'], $propiedad['apto']);
+            $factura  = $facturas->estadoDeCuenta($propiedad['id_inmueble'], $propiedad['apto']);
             
                 if ($factura['suceed'] == true) {
                     
-                    if ($propiedad['meses_pendiente'] < $inmueble['data'][0]["meses_mora"] && $inmueble['data'][0]["meses_mora"] > 0) {
-                    
-                        for ($index = 0; $index < count($factura['data']); $index++) {
-                            $filename = "../avisos/" . $factura['data'][$index]['numero_factura'] . ".pdf";
-                            
-                            $factura['data'][$index]['aviso'] = file_exists($filename);
-//                            $r = pago::facturaPendientePorProcesar($factura['data'][$index]['periodo'], $factura['data'][$index]['id_inmueble'], $factura['data'][$index]['apto']);
-//                            if ($r['suceed'] && count($r['data'])>0) {
-//                                $factura['data'][$index]['pagado'] = 1;
-//                                $factura['data'][$index]['pagado_detalle']= "<i class='fa fa-calendar-o'></i> ".
-//                                        Misc::date_format($r['data'][0]['fecha'])."<br>".
-//                                        strtoupper($r['data'][0]['tipo_pago']." - Ref: ".
-//                                                $r['data'][0]['numero_documento']."<br>Monto: ".
-//                                                number_format($r['data'][0]['monto'],2,",","."));
-//                            } else {
-                                $factura['data'][$index]['pagado'] = 0;
-                                $factura['data'][$index]['pagado_detalle']='';
-//                            }
-                        }
+                    for ($index = 0; $index < count($factura['data']); $index++) {
+                        
+                        $filename = "../avisos/".$factura['data'][$index]['numero_factura'].".pdf";
+                        
+                        $factura['data'][$index]['aviso']   = file_exists($filename);
+                        $factura['data'][$index]['pagado']  = 0;
+                        $factura['data'][$index]['pagado_detalle'] = '';
                     }
                     
                     $cuenta[] = Array(
@@ -231,10 +224,10 @@ switch ($accion) {
             }
         }
         echo $twig->render('enlinea/pago/formulario.html.twig', array("session" => $session,
-        'cuentas'       => $cuenta,
-        'accion'        => $accion,
-        'usuario'       => $session['usuario'],
-        'propiedades'   => $propiedades['data']
+        'cuentas'     => $cuenta,
+        'accion'      => $accion,
+        'usuario'     => $session['usuario'],
+        'propiedades' => $propiedades['data']
         ));
         break; 
 // </editor-fold>
