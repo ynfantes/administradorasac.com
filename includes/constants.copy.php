@@ -15,11 +15,18 @@ $mostrar_error = true;
 if ($_SERVER['SERVER_NAME'] == "www.administradorasac.com" | $_SERVER['SERVER_NAME'] == "administradorasac.com") {
     $user = "";
     $password = "";
+<<<<<<< HEAD
     $db = "administradora_sac";
     $email_error = true;
     $mostrar_error = true;
     $debug = FALSE;
 
+=======
+    $db = "";
+    $email_error = true;
+    $mostrar_error = true;
+    $debug = FALSE;
+>>>>>>> 6596ec7eb38efcbe716bc4b3d0fd19bf218b01de
 } else {
     $sistema = "/administradorasac.com/";
     $user = "root";
@@ -117,7 +124,11 @@ define("ARCHIVO_MOVIMIENTOS_DE_FONDO","MOVIMIENTO_FONDO.txt");
 define("ARCHIVO_ACTUALIZACION","ACTUALIZACION.txt");
 define("ARCHIVO_MOVIMIENTO_CAJA","MOVIMIENTO_CAJA.txt");
 define("SMTP_SERVER","");
+<<<<<<< HEAD
 define("PORT",587);
+=======
+define("PORT",0);
+>>>>>>> 6596ec7eb38efcbe716bc4b3d0fd19bf218b01de
 define("USER_MAIL","");
 define("PASS_MAIL","");
 define("MESES_COBRANZA","3");
