@@ -222,20 +222,19 @@ switch ($accion) {
                     }
                     
                     $cuenta[] = Array(
-                            "inmueble" => $inmueble['data'][0],
-                            "propiedades" => $propiedad,
-                            "cuentas" => $factura['data'],
-                            "resultado" => $resultado
+                            'inmueble'      => $inmueble['data'][0],
+                            'propiedades'   => $propiedad,
+                            'cuentas'       => $factura['data'],
+                            'resultado'     => $resultado
                             );
                 }
             }
         }
-        
         echo $twig->render('enlinea/pago/formulario.html.twig', array("session" => $session,
-        "cuentas" => $cuenta,
-        "accion" => $accion,
-        "usuario"=>$session['usuario'],
-        "propiedades"=>$propiedades['data']
+        'cuentas'       => $cuenta,
+        'accion'        => $accion,
+        'usuario'       => $session['usuario'],
+        'propiedades'   => $propiedades['data']
         ));
         break; 
 // </editor-fold>

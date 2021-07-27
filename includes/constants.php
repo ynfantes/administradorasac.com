@@ -19,7 +19,6 @@ if ($_SERVER['SERVER_NAME'] == "www.administradorasac.com" | $_SERVER['SERVER_NA
 
 } else {
 
-    $sistema = "/administradorasac.com/";
     $user = "root";
     $password = "";
     $db = "administradora_sac";

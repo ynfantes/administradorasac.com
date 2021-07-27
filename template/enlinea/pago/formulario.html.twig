@@ -375,8 +375,8 @@ no tiene recibos pendiente por cancelar.
         $("#fecha_documento").val('{{"now"|date("d/m/Y")}}');
         
         $(":checkbox").click(function() {
-            $('input[name|="banco_destino"]').val($(this).closest("tr").find("td:eq(7)").text());
-            $('input[name|="numero_cuenta"]').val($(this).closest("tr").find("td:eq(8)").text());
+            $('input[name|="banco_destino"]').val($(this).closest("tr").find("td:eq(8)").text());
+            $('input[name|="numero_cuenta"]').val($(this).closest("tr").find("td:eq(9)").text());
             /*var monto = 0;
             $("input:checked").each(function() {
                 monto = parseFloat(monto) + (parseFloat($(this).closest("tr").find("td:eq(5)").text().replace(".", "").replace(",", ".")) * 100);
