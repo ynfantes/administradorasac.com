@@ -12,7 +12,6 @@ $accion = isset($_GET['accion']) ? $_GET['accion'] : "listar";
 
 switch ($accion) {
     
-    // <editor-fold defaultstate="collapsed" desc="cancelacion">
     case "cancelacion":
         $titulo = $_GET['id'] . ".pdf";
         $content = 'Content-type: application/pdf';
@@ -21,9 +20,7 @@ switch ($accion) {
         header($content);
         readfile($url,false);
         break;
-    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="listarRecibosCancelados">
     case "listarRecibosCancelados":
         $propiedad = new propiedades();
         $inmuebles = new inmueble();
@@ -64,9 +61,7 @@ switch ($accion) {
 
 
         break; 
-    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="ver">
     case "ver":
         $propiedad = new propiedades();
         $inmuebles = new inmueble();
@@ -114,7 +109,6 @@ switch ($accion) {
 
         break; // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="guardar">
     case "guardar":
         $pago = new pago();
         
@@ -172,12 +166,10 @@ switch ($accion) {
         echo json_encode($exito);
         
         break;
-    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="registrar, listar">
-        case "registrar":
-        case "listar":
-        default :
+    case "registrar":
+    case "listar":
+    default :
         $propiedad = new propiedades();
         $facturas = new factura();
         $inmuebles = new inmueble();
@@ -230,9 +222,7 @@ switch ($accion) {
         'propiedades' => $propiedades['data']
         ));
         break; 
-// </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="listaPagoDetalle">
     case "listaPagosDetalle":
         $pagos = new pago();
         $pago_detalle = $pagos->detalleTodosPagosPendientes();
@@ -248,9 +238,7 @@ switch ($accion) {
             }
         }
         break; 
-// </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="listaPagosMaestros">
     case "listaPagosMaestros":
         $pagos = new pago();
         $pagos_maestro = $pagos->listarPagosPendientes();
@@ -276,9 +264,7 @@ switch ($accion) {
             }
         }
         break; 
-// </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="listaPagosPendientes">
     case "listarPagosPendientes":
         $pagos = new pago();
         $fecha = $_GET['id']=='sac'?null:$_GET['id'];
@@ -328,7 +314,6 @@ switch ($accion) {
         }
         break; // </editor-fold>
         
-    // <editor-fold defaultstate="collapsed" desc="Pagos procesados general">
     case "listarPagosProcesadosGeneral":
         $pagos = new pago();
         $desde = null;
@@ -386,9 +371,7 @@ switch ($accion) {
             echo "0";
         }
         break; 
-    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="confirmar">
     case "confirmar":
 
         $pago = new pago();
@@ -401,17 +384,13 @@ switch ($accion) {
         echo $r;
         break;
     
-    // </editor-fold>
    
-    // <editor-fold defaultstate="collapsed" desc="reenviar email registro pago">
     case "reenviarEmailRegistroPago":
         $pago = new pago();
         $id = $_GET['id'];
         $pago->enviarEmailPagoRegistrado($id);
         break; 
-    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="historico de pagos">
     case "historico":
         $propiedad = new propiedades();
         $pagos = new pago();
@@ -452,9 +431,7 @@ switch ($accion) {
             "historicos" => $historico
         ));
         break; 
-    // </editor-fold>
         
-    // <editor-fold defaultstate="collapsed" desc="actualizar factura">
     case "actualizar_factura":
 
 
@@ -472,6 +449,5 @@ switch ($accion) {
         
         }
         break; 
-    // </editor-fold>
 
 }
