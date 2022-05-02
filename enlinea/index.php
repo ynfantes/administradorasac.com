@@ -38,10 +38,10 @@ if ($sesiones['suceed']) {
 }
 
 echo $twig->render('enlinea/index.html.twig', array(
-    "session" => $session,
-    "fecha_actualizacion" => $fecha_actualizacion,
-    "recibos"=> $recibos,
-    "cancelacion"=>$cancela,
-    "historico" => $historico,
-    "mensajes" => $m
+    'session'               => $session,
+    'fecha_actualizacion'   => $fecha_actualizacion,
+    'recibos'               => $recibos,
+    'cancelacion'           =>$cancela,
+    'historico'             => $historico,
+    'mensajes'              => $m
     ));

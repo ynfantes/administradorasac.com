@@ -183,47 +183,28 @@ Escríbanos a <strong>sistemas@administradorasac.com</strong> si tiene algún in
 pageSetUp();
 
 // PAGE RELATED SCRIPTS
-
 var pagefunction = function() {
 
 /* chart colors default */
 var $chrt_border_color = "#efefef";
-var $chrt_grid_color = "#DDD"
+/*var $chrt_grid_color = "#DDD";*/
 var $chrt_main = "#E24913";		/* red       */
 var $chrt_second = "#6595b4";		/* blue      */
 var $chrt_third = "#FF9F01";		/* orange    */
 var $chrt_fourth = "#7e9d3a";		/* green     */
-var $chrt_fifth = "#BD362F";		/* dark red  */
-var $chrt_mono = "#000";
+/*var $chrt_fifth = "#BD362F";*/	/* dark red  */
+/*var $chrt_mono = "#000";*/
 
 /* bar-chart-h */
 if ($("#cobranza-graf").length) {
-var data1 = [];
-function onDataReceived(series) {
-data1.push(series);
-$.plot($("#cobranza-graf"), data1, options1);
-
-}
-// display graph
-{% set id = '' %}
-{% for inm in inmuebles %}
-{% if id != inm.id_inmueble %}
-{% set id = inm.id_inmueble %}
-$.ajax({
-url: "{{ constant("URL_SISTEMA")}}/inmueble/cobranzaflot/{{ inm.id_inmueble}}",
-dataType:"json",
-cache: true,
-success: onDataReceived
-});
-{% endif %}
-{% endfor %}
-var options1 = {
+var dataset = [];
+var options = {
 xaxis : {
 mode : "categories",
 tickLength : 5,
 tickFormatter: function(val, axis) {
 return val.toLocaleString();
-},
+}
 },
 series : {
 lines : {
@@ -245,29 +226,46 @@ shadowSize : 0
 selection : {
 mode : "x"
 },
+legend : {
+show : false
+},
 grid : {
 hoverable : true,
 clickable : true,
 tickColor : $chrt_border_color,
 borderWidth : 0,
-borderColor : $chrt_border_color,
+borderColor : $chrt_border_color
 },
 yaxis:{
 tickFormatter: function(val, axis) {
 return val.toLocaleString()+"MM";
-},
+}
 },
 tooltip : true,
 tooltipOpts : {
-content : "%s <b>%x</b> <span>Bs.%y.1MM</span>",
+content : "%s<br/><b>%x</b> <span>Bs.%y.1MM</span>",
 //dateFormat : "%y-%0m-%0d",
 defaultTheme : false
 },
-colors : [$chrt_main,$chrt_second,$chrt_third],
+colors : [$chrt_main,$chrt_second,$chrt_third]
 
 };
 
-$.plot($("#cobranza-graf"), data1, options1);
+{% set id = '' %}
+{% for inm in inmuebles %}
+{% if id != inm.id_inmueble %}
+{% set id = inm.id_inmueble %}
+$.ajax({
+dataType: "json",
+url: "{{constant("URL_SISTEMA")}}/inmueble/cobranzaflot/{{inm.id_inmueble}}",
+cache: true,
+success: function(data) {
+    dataset.push(data);
+    $.plot($("#cobranza-graf"), dataset, options);
+    }
+});
+{% endif %}
+{% endfor %}
 
 } 
 
@@ -276,43 +274,14 @@ $.plot($("#cobranza-graf"), data1, options1);
 /* updating chart */
 
 if ($("#facturacion-graf").length) {
-//var d = {"label":"Miles de Bs.","data":[["04\/2014",18.6075],["05\/2014",18.1217],["06\/2014",43.3941],["07\/2014",26.9093],["08\/2014",29.5532],["09\/2014",18.6566],["10\/2014",3.3232]]};		
-var data = [];
-
-function onDataReceived(series) {
-
-// Extract the first coordinate pair; jQuery has parsed it, so
-// the data is now just an ordinary JavaScript object
-
-data.push(series);
-// Push the new data onto our existing data array
-
-//if (!alreadyFetched[series.label]) {
-//	alreadyFetched[series.label] = true;
-//	data.push(series);
-//}
-$.plot($("#facturacion-graf"), data, options);
-
-}
-{% set id = '' %}
-{% for inm in inmuebles %}
-{% if id != inm.id_inmueble %}
-{% set id = inm.id_inmueble %}
-$.ajax({
-url: "{{ constant("URL_SISTEMA")}}/inmueble/facturacionflot/{{ inm.id_inmueble}}",
-dataType:"json",
-cache: true,
-success: onDataReceived
-});
-{% endif %}
-{% endfor %}
-var options = {
+var dataset1 = [];
+var options1 = {
 xaxis : {
 mode : "categories",
 tickLength : 5,
 tickFormatter: function(val, axis) {
 return val.toLocaleString();
-},
+}
 },
 series : {
 lines : {
@@ -333,36 +302,47 @@ shadowSize : 0
 selection : {
 mode : "x"
 },
+legend : {
+    show : false
+},
 grid : {
 hoverable : true,
 clickable : true,
 tickColor : $chrt_border_color,
 borderWidth : 0,
-borderColor : $chrt_border_color,
+borderColor : $chrt_border_color
 },
 yaxis:{
 tickFormatter: function(val, axis) {
 return val.toLocaleString()+"MM";
-},
+}
 },
 tooltip : true,
 tooltipOpts : {
-content : "%s <b>%x</b> <span>Bs.%y.1MM</span>",
+content : "%s<br><b>%x</b> <span>Bs.%y.1MM</span>",
 //dateFormat : "%y-%0m-%0d",
 defaultTheme : false
 },
-colors : [$chrt_main,$chrt_second,$chrt_third],
-
+colors : [$chrt_fourth,$chrt_main,$chrt_second]
+};
+{% set id = '' %}
+{% for inm in inmuebles %}
+{% if id != inm.id_inmueble %}
+{% set id = inm.id_inmueble %}
+$.ajax({
+url: "{{constant("URL_SISTEMA")}}/inmueble/facturacionflot/{{inm.id_inmueble}}",
+dataType:"json",
+cache: true,
+success: function(data1) {
+    dataset1.push(data1);
+    $.plot($("#facturacion-graf"), dataset1, options1);
+    }
+});
+{% endif %}
+{% endfor %}
+};
 };
 
-$.plot($("#facturacion-graf"), data, options);
-};
-
-/*end updating chart*/
-
-};
-
-// end pagefunction
 
 // load all flot plugins
 loadScript("{{ constant('ROOT') }}js/plugin/flot/jquery.flot.min.js", function(){

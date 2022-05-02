@@ -4,3 +4,6 @@ enlinea_/
 sacupdate/
 includes/constants.php
 data/*.*
+enlinea/avisos/*.pdf
+vendor/
+credenciales/

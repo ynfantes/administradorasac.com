@@ -14,7 +14,6 @@ $facturas = new factura();
 $accion = isset($_GET['accion']) ? $_GET['accion'] : "listar";
 $session = $_SESSION;
 
-// <editor-fold defaultstate="collapsed" desc="promedio facturacion y cobranza">
 $cuenta = Array();
 $factura = null;
 $cobro = null;
@@ -70,11 +69,10 @@ if ($propiedades['suceed']) {
         
     }
     
-}// </editor-fold>
+}
 
 switch ($accion) {
     
-    // <editor-fold defaultstate="collapsed" desc="junta-condominio">
     case "junta-condominio": default :
         $junta_condominio = new junta_condominio();
         $propiedades = $propiedad->propiedadesPropietario($_SESSION['usuario']['cedula']);
@@ -86,44 +84,51 @@ switch ($accion) {
             foreach ($propiedades['data'] as $propiedad) {
                 
                 $bitacora->insertar(Array(
-                    "id_sesion"=>$session['id_sesion'],
-                    "id_accion"=> 4,
-                    "descripcion"=>$propiedad['id_inmueble']." - ".$propiedad['apto'],
+
+                    'id_sesion'     => $session['id_sesion'],
+                    'id_accion'     => 4,
+                    'descripcion'   => $propiedad['id_inmueble']." - ".$propiedad['apto']
+
                 ));
                 
                 if ($propiedad['id_inmueble'] != $id_inmueble) {
-                    $id_inmueble = $propiedad['id_inmueble'];
-                    $inmueble = $inmuebles->ver($id_inmueble);
-                    $junta = $junta_condominio->listarJuntaPorInmueble($id_inmueble);
+
+                    $id_inmueble    = $propiedad['id_inmueble'];
+                    $inmueble       = $inmuebles->ver($id_inmueble);
+                    $junta          = $junta_condominio->listarJuntaPorInmueble($id_inmueble);
                     
                         if ($junta['suceed'] && count($junta['data'])>0) {
                             
                             for ($index = 0; $index < count($junta['data']); $index++) {
+
                                 $prop = $propietario->obtenerDatosPropietario($junta['data'][$index]['cedula']);
                                 $junta['data'][$index]['propietario']=$prop['data'][0];
+
                             }
                             $miembros[] = Array(
-                                "inmueble" => $inmueble['data'][0],
-                                "miembros" => $junta['data']
+
+                                'inmueble' => $inmueble['data'][0],
+                                'miembros' => $junta['data']
+
                             );
                         }
+
                 }
             }
         }
         
         echo $twig->render('enlinea/inmueble/formulario.html.twig', array("session" => $session,
-            "junta" => $miembros,
-            "movimiento_facturacion" => $factura,
-            "promedio_facturacion" => $promedio_facturacion,
-            "direccion_facturacion" => $direccion_facturacion,
-            "movimiento_cobranza" => $cobro,
-            "promedio_cobranza" => $promedio_cobranza,
-            "direccion_cobranza" => $direccion_cobranza
+            'junta'                   => $miembros,
+            'movimiento_facturacion'  => $factura,
+            'promedio_facturacion'    => $promedio_facturacion,
+            'direccion_facturacion'   => $direccion_facturacion,
+            'movimiento_cobranza'     => $cobro,
+            'promedio_cobranza'       => $promedio_cobranza,
+            'direccion_cobranza'      => $direccion_cobranza
         ));
         
-        break; // </editor-fold>
+        break; 
 
-    // <editor-fold defaultstate="collapsed" desc="estado cuenta inmueble">
     case "cuenta":
         $propiedades = $propiedad->propiedadesPropietario($_SESSION['usuario']['cedula']);
         $id_inmueble = "";
@@ -163,7 +168,6 @@ switch ($accion) {
         ));
         break; // </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="facturacion_flot">
     case "facturacionflot":
         
         $propiedades = $propiedad->inmueblePorPropietario($_SESSION['usuario']['cedula']);
@@ -188,9 +192,7 @@ switch ($accion) {
             //}
         }
         break; 
-    // </editor-fold>
     
-    // <editor-fold defaultstate="collapsed" desc="cobranza_flot">
     case "cobranzaflot":
         
         $propiedades = $propiedad->inmueblePorPropietario($_SESSION['usuario']['cedula']);
@@ -215,9 +217,8 @@ switch ($accion) {
             //}
         }
         break; 
-    // </editor-fold>   
 
-    // <editor-fold defaultstate="collapsed" desc="cartelera">
+    
     case "cartelera":
         $archivo = '../../' . ACTUALIZ . ARCHIVO_ACTUALIZACION;
         $fecha_actualizacion = JFile::read($archivo);
@@ -240,8 +241,7 @@ switch ($accion) {
             "inmuebles" => $propiedades['data']
         ));
         break; 
-// </editor-fold>
-
+    
     case "imprimircuenta":
         break;
 }
