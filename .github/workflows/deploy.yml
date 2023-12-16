@@ -29,4 +29,5 @@ jobs:
             **/.git*
             **/.git*/**
             **/.vscode*
+            **/.github*
             .htaccess
