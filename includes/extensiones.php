@@ -1,8 +1,7 @@
 <?php
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
-use Twig\TwigFilter;
-use Twig\TwigTag;
+
 
 class Extensiones extends AbstractExtension {
 

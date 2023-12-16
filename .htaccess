@@ -5,7 +5,7 @@ Options +FollowSymLinks
 RewriteEngine on
 #
 RewriteCond %{HTTP_HOST} ^administradorasac.com
-RewriteRule (.*) http://www.administradora.com/$1 [R=301,L]
+RewriteRule (.*) http://www.administradorasac.com/$1 [R=301,L]
 
 Rewriterule ^enlinea/([A-Za-z\-]+)/([A-Za-z\-]+)$ enlinea/$1/index.php?accion=$2 [L]
 Rewriterule ^enlinea/([A-Za-z\-]+)/([A-Za-z\-]+)/([0-9A-Za-z\-\_\.]+)$ enlinea/$1/index.php?accion=$2&id=$3 [L]
