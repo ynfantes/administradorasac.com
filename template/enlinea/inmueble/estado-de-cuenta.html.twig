@@ -83,6 +83,7 @@ Inmueble
                             <th style="text-align: center">Nº Recibos</th>
                             <th style="text-align: center">Deuda Bs</th>
                             <th style="text-align: center">Deuda USD</th>
+                            <th style="text-align: center">Estatus</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,6 +105,7 @@ Inmueble
                                     <td style="text-align: center;">{{detalle.recibos}}</td>
                                     <td><span class="pull-right">{{format_number(detalle.deuda)}}</span></td>
                                     <td><span class="pull-right">{{format_number(detalle.deuda_usd)}}</span></td>
+                                    <td>{% if detalle.recibos > cuenta.inmueble.meses_mora %}DEPARTAMENTO LEGAL{% endif %}</td>
                                 </tr>
                                 {% endif %}
                             {% endfor %}
@@ -113,6 +115,7 @@ Inmueble
                                     <td style="text-align: center"><strong>{{ n }}</strong></td>
                                     <td><span class="pull-right"><strong>{{format_number(total)}}</strong></span></td>
                                     <td><span class="pull-right"><strong>{{format_number(total_usd)}}</strong></span></td>
+                                    <td></td>
                                 </tr>
                         {% endif %}
                     </tbody>

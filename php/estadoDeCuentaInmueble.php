@@ -64,13 +64,14 @@ if ($id_inmueble!= "") {
     <br>
 </div>
 <div class="widget-body no-padding">
-    <table  style="width: 80%;border: solid 1px #5544DD; border-collapse: collapse" align="center">
+    <table  style="width: 100%;border: solid 1px #5544DD; border-collapse: collapse" align="center">
         <thead>
             <tr>
-                <th style="width: 30%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Apartamento</th>
-                <th style="width: 30%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Nº Recibos</th>
-                <th style="width: 30%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Deuda Bs</th>
-                <th style="width: 30%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Deuda USD</th>
+                <th style="width: 15%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Apartamento</th>
+                <th style="width: 15%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Nº Recibos</th>
+                <th style="width: 20%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Deuda Bs</th>
+                <th style="width: 20%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Deuda USD</th>
+                <th style="width: 30%; text-align: center; border: solid 1px #337AB7; background: #337AB7;padding: 2mm; color: #fff">Estatus</th>
             </tr>
         </thead>
         <tbody>
@@ -85,6 +86,7 @@ if ($id_inmueble!= "") {
                 <td style="text-align: center;border: solid 1px #cfcfcf;"><?php echo $r['recibos']; ?></td>
                 <td style="text-align: right;border: solid 1px #cfcfcf;"><?php echo number_format($r['deuda'], 2, ",","."); ?>&nbsp;&nbsp;</td>
                 <td style="text-align: right;border: solid 1px #cfcfcf;"><?php echo number_format($r['deuda_usd'], 2, ",","."); ?>&nbsp;&nbsp;</td>
+                <td style="border: solid 1px #cfcfcf;"><?php if ($r['recibos'] > 3) { ?>DEPARTAMENTO LEGAL <?php } ?></td>
             </tr>
             <?php } }?>
             <tr>
@@ -92,9 +94,10 @@ if ($id_inmueble!= "") {
                 <td style="text-align: center;border: solid 1px #cfcfcf;"><strong><?php echo $recibos; ?></strong>&nbsp;&nbsp;</td>
                 <td style="text-align: right;border: solid 1px #cfcfcf;"><strong><?php echo number_format($total, 2, ",","."); ?></strong>&nbsp;&nbsp;</td>
                 <td style="text-align: right;border: solid 1px #cfcfcf;"><strong><?php echo number_format($total_usd, 2, ",","."); ?></strong>&nbsp;&nbsp;</td>
+                <td style="text-align: right;border: solid 1px #cfcfcf;"></td>
             </tr>
         </tbody>
-</table>
+    </table>
 </div>  
 </page>
 
