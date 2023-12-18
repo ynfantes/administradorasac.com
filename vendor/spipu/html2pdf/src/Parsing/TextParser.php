@@ -42,7 +42,7 @@ class TextParser
         if ($spaces) {
             $txt = preg_replace('/\s+/isu', ' ', $txt);
         }
-        $txt = str_replace('&euro;', '€', $txt);
+        $txt = str_replace('&euro;', '€', $txt ?? '');
         $txt = html_entity_decode($txt, ENT_QUOTES, $this->encoding);
         return $txt;
     }
